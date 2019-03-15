@@ -48,7 +48,7 @@ public class Book {
     public void setNumberOfPages(int numberOfPages) {
         this.numberOfPages = numberOfPages;
     }
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -69,13 +69,7 @@ public class Book {
     }
 
     public static void view(Book b){
-        System.out.println();
-        System.out.print(b.id + "\t");
-        System.out.print(b.title + "\t");
-        System.out.print(b.author + "\t");
-        System.out.print(b.publisher + "\t");
-        System.out.print(b.yearOfPublication + "\t");
-        System.out.print(b.numberOfPages + "\t");
-        System.out.println(b.price + "\t");
+        System.out.printf("%-3d%-35s%-20s%-14s%6d%6d%7.2f%n",
+                b.id,b.title,b.author,b.publisher,b.yearOfPublication,b.numberOfPages,b.price);
     }
 }
