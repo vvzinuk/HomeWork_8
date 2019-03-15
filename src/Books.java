@@ -1,11 +1,11 @@
 public class Books {
     int arraySize;
     static int index = 0;
-    Book[] array = new Book[arraySize];
+    Book[] array;
 
     public Books(int arraySize) {
         this.arraySize = arraySize;
-
+        array = new Book[arraySize];
     }
 
     public void addBook(Books myLibrary){
@@ -19,7 +19,7 @@ public class Books {
 
     public void addBook(Books myLibrary, String title, String author, String publisher, int yearOfPublication, int numberOfPages, double price){
         if (index < myLibrary.array.length){
-            array[index] = new Book(index, title, author, publisher, yearOfPublication, numberOfPages, price );
+            array[index] = new Book(title, author, publisher, yearOfPublication, numberOfPages, price );
             index ++;
         }else {
             System.out.println("We don't have enough space for this book!");
@@ -33,8 +33,11 @@ public class Books {
         }
     }
 
-    public void changePrice(){
-
+    public void changePrice(Books b, int percent){
+        for(Book element: b.array) {
+            double price = element.getPrice();
+            element.setPrice( price *  );
+        }
     }
 
     public void findBooksByAuthor(){

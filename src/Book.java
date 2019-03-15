@@ -1,5 +1,6 @@
 public class Book {
-    private static int id = 0;
+    private static  int counter = 1;
+    private int id;
     private String title;
     private String author;
     private String publisher;
@@ -29,9 +30,9 @@ public class Book {
         return price;
     }
 
-//    public void setId(int id) {
-//        this.id = id;
-//    }
+    public void setId(int id) {
+        this.id = id;
+    }
     public void setTitle(String title) {
         this.title = title;
     }
@@ -52,16 +53,19 @@ public class Book {
     }
 
     public Book() {
+        this.id = counter;
+        counter++;
     }
 
-    public Book(int id, String title, String author, String publisher, int yearOfPublication, int numberOfPages, double price) {
-        this.id = id;
+    public Book(String title, String author, String publisher, int yearOfPublication, int numberOfPages, double price) {
+        this.id = counter;
         this.title = title;
         this.author = author;
         this.publisher = publisher;
         this.yearOfPublication = yearOfPublication;
         this.numberOfPages = numberOfPages;
         this.price = price;
+        counter++;
     }
 
     public static void view(Book b){
