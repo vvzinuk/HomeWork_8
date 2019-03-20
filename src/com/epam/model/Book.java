@@ -1,3 +1,5 @@
+package com.epam.model;
+
 public class Book {
     private static  int counter = 1;
     private int id;
@@ -68,8 +70,8 @@ public class Book {
         counter++;
     }
 
-    public static void view(Book b){
+    public void view(){
         System.out.printf("%-3d%-35s%-20s%-14s%6d%6d%7.2f%n",
-                b.id,b.title,b.author,b.publisher,b.yearOfPublication,b.numberOfPages,b.price);
+                id, title, author, publisher, yearOfPublication, numberOfPages, price);
     }
 }
