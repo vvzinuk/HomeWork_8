@@ -70,8 +70,9 @@ public class Book {
         counter++;
     }
 
-    public void view(){
-        System.out.printf("%-3d%-35s%-20s%-14s%6d%6d%7.2f%n",
+    @Override
+    public String toString() {
+        return String.format("%-3d%-35s%-20s%-14s%6d%6d%7.2f%n",
                 id, title, author, publisher, yearOfPublication, numberOfPages, price);
     }
 }

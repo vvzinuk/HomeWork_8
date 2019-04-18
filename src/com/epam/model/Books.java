@@ -5,18 +5,10 @@ public class Books {
     private static int index = 0;
     private Book[] array;
 
-    public Books(){}
 
     public Books(int arraySize) {
         this.arraySize = arraySize;
-        array = new Book[arraySize];
-    }
-
-    public void addBook(){
-        if (index < array.length){
-            array[index] = new Book();
-            index ++;
-        }
+        this.array = new Book[arraySize];
     }
 
     public void addBook(String title, String author, String publisher, int yearOfPublication, int numberOfPages, double price){
@@ -26,10 +18,13 @@ public class Books {
         }
     }
 
-    public void showAllBooks(){
+    @Override
+    public String toString(){
+        String result = "";
         for (Book element : array) {
-            element.view();
+         result += element.toString();
         }
+        return result;
     }
 
     public void changePrice(int percent){
@@ -42,9 +37,10 @@ public class Books {
     public Books findBooksByAuthor(String author){
         if (findAmountByAuthor(author) == 0)
             return null;
-        Books result = new Books(findAmountByAuthor(author));
+        int capacity = findAmountByAuthor(author);
+        Books result = new Books(capacity);
         int j = 0;
-        for (Book element: array){
+        for (Book element: result.array){
             if (element.getAuthor().toLowerCase().contains(author.toLowerCase())){
                 result.array[j] = element;
                 j++;

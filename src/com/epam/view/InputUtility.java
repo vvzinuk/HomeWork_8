@@ -4,19 +4,18 @@ import java.util.Scanner;
 
 public class InputUtility {
     private static Scanner sc = new Scanner(System.in);
-    public static int inputIntValueWithScanner(Messenger view, String number) {
-        view.printMessage(number);
+
+    public static int inputIntValueWithScanner(Messenger view) {
         while( !sc.hasNextInt()) {
-            view.printMessage(view.WRONG_INPUT_DATA + number);
-            sc.next();
+            view.printMessage(Messages.WRONG_INPUT_INT_DATA + sc.next());
         }
         return sc.nextInt();
     }
 
     public static String inputStringValueWithScanner(Messenger view) {
-        view.printMessage(view.INPUT_AUTHOR);
+        view.printMessage(Messages.INPUT_AUTHOR);
         while( !sc.hasNextLine()) {
-            view.printMessage(view.WRONG_INPUT_INT_DATA + view.INPUT_AUTHOR);
+            view.printMessage(Messages.WRONG_INPUT_INT_DATA + Messages.INPUT_AUTHOR);
             sc.next();
         }
         return sc.nextLine();
