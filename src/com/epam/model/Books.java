@@ -1,6 +1,11 @@
 package com.epam.model;
 
-public class Books {
+//import com.epam.Comparators.AuthorDescComparator;
+
+import java.util.Arrays;
+import java.util.Comparator;
+
+public class Books implements Cloneable {
     private int arraySize;
     private static int index = 0;
     private Book[] array;
@@ -35,12 +40,12 @@ public class Books {
     }
 
     public Books findBooksByAuthor(String author){
-        if (findAmountByAuthor(author) == 0)
-            return null;
         int capacity = findAmountByAuthor(author);
+        if (capacity == 0)
+            return null;
         Books result = new Books(capacity);
         int j = 0;
-        for (Book element: result.array){
+        for (Book element: this.array){
             if (element.getAuthor().toLowerCase().contains(author.toLowerCase())){
                 result.array[j] = element;
                 j++;
@@ -82,11 +87,44 @@ public class Books {
         return number;
     }
 
-    public boolean checkIsNull (){
-        if (arraySize == 0){
-            return true;
-        } else {
-            return false;
-        }
+    public Books sortByAuthorDesc() throws CloneNotSupportedException {
+        Books temp = (Books) super.clone();
+        temp.array = this.array.clone();
+        Arrays.sort(temp.array, new Comparator<Book>(){
+            @Override
+            public int compare(Book o1, Book o2) {
+                String author1 = o1.getAuthor();
+                String author2 = o2.getAuthor();
+                return author1.compareTo(author2);
+            }
+        });
+        return temp;
+    }
+
+    public Books sortByPublisherDesc() throws CloneNotSupportedException {
+        Books temp = (Books) super.clone();
+        temp.array = this.array.clone();
+        Arrays.sort(temp.array, new Comparator<Book>(){
+            @Override
+            public int compare(Book o1, Book o2) {
+                String pub1 = o1.getPublisher();
+                String pub2 = o2.getPublisher();
+                return pub1.compareTo(pub2);
+            }
+        });
+        return temp;
+    }
+    public Books sortByPriceAsc() throws CloneNotSupportedException {
+        Books temp = (Books) super.clone();
+        temp.array = this.array.clone();
+        Arrays.sort(temp.array, new Comparator<Book>(){
+            @Override
+            public int compare(Book o1, Book o2) {
+                double price1 = o1.getPrice();
+                double price2 = o2.getPrice();
+                return Double.compare(price2,price1);
+            }
+        });
+        return temp;
     }
 }

@@ -1,7 +1,6 @@
 package com.epam.view;
 
 public interface Messages {
-    String LIBRARY_IS_FULL = "We don't have enough space for this book!";
     String LIBRARY_IS_EMPTY = "Library is empty.";
     String INPUT_PERCENT = "Enter the percent: ";
     String INPUT_AUTHOR = "Enter author name: ";
@@ -12,5 +11,8 @@ public interface Messages {
             "2. Change price\n" +
             "3. Find books by author\n" +
             "4. Find books by year\n" +
-            "5. Close program\n";
+            "5. Sort by Author's name (Desc)\n" +
+            "6. Sort by Publisher (Desc)\n" +
+            "7. Sort by Price (Asc)\n" +
+            "8. Close program\n";
 }

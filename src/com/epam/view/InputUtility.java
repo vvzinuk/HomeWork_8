@@ -13,9 +13,8 @@ public class InputUtility {
     }
 
     public static String inputStringValueWithScanner(Messenger view) {
-        view.printMessage(Messages.INPUT_AUTHOR);
         while( !sc.hasNextLine()) {
-            view.printMessage(Messages.WRONG_INPUT_INT_DATA + Messages.INPUT_AUTHOR);
+            view.printMessage(Messages.WRONG_INPUT_INT_DATA + Messages.INPUT_AUTHOR );
             sc.next();
         }
         return sc.nextLine();
