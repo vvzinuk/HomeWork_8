@@ -20,15 +20,6 @@ public class Books implements Cloneable {
         }
     }
 
-//    @Override
-//    public String toString(){
-//        String result = "";
-//        for (Book element : array) {
-//         result += element.toString();
-//        }
-//        return result;
-//    }
-
     @Override
     public String toString(){
         StringBuilder result = new StringBuilder(  );
@@ -37,8 +28,6 @@ public class Books implements Cloneable {
         }
         return result.toString();
     }
-
-
 
     public void changePrice(int percent){
         for(Book element: array) {
@@ -78,7 +67,7 @@ public class Books implements Cloneable {
         Books result = new Books(findAmountByYear(yearOfPublication));
         int j = 0;
         for (Book element: array){
-            if (element.getYearOfPublication() > yearOfPublication){
+            if (element.getYearOfPublication() >= yearOfPublication){
                 result.array[j] = element;
                 j++;
             }
@@ -89,7 +78,7 @@ public class Books implements Cloneable {
     private int findAmountByYear(int year){
         int number = 0;
         for (Book element: array) {
-            if ((element.getYearOfPublication() > year) && year > 0)
+            if ((element.getYearOfPublication() >= year))
                 number++;
         }
         return number;

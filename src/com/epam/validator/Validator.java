@@ -1,6 +1,6 @@
 package com.epam.validator;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.regex.Pattern;
 
 public class Validator {
@@ -17,7 +17,8 @@ public class Validator {
     }
 
     public static int checkYear (int year) throws WrongYearException {
-        if (year < 1454 || year > new Date(  ).getTime()) throw new WrongYearException();
+        int current = Calendar.getInstance().get(Calendar.YEAR);
+        if (year < 1454 || year > current) throw new WrongYearException();
         else return year;
     }
 
