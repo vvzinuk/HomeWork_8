@@ -1,7 +1,4 @@
 package com.epam.model;
-
-//import com.epam.Comparators.AuthorDescComparator;
-
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -23,14 +20,25 @@ public class Books implements Cloneable {
         }
     }
 
+//    @Override
+//    public String toString(){
+//        String result = "";
+//        for (Book element : array) {
+//         result += element.toString();
+//        }
+//        return result;
+//    }
+
     @Override
     public String toString(){
-        String result = "";
+        StringBuilder result = new StringBuilder(  );
         for (Book element : array) {
-         result += element.toString();
+         result.append( element.toString());
         }
-        return result;
+        return result.toString();
     }
+
+
 
     public void changePrice(int percent){
         for(Book element: array) {
@@ -87,9 +95,14 @@ public class Books implements Cloneable {
         return number;
     }
 
-    public Books sortByAuthorDesc() throws CloneNotSupportedException {
+    private Books makeCloneOfBooks()throws CloneNotSupportedException {
         Books temp = (Books) super.clone();
         temp.array = this.array.clone();
+        return temp;
+    }
+
+    public Books sortByAuthorDesc() throws CloneNotSupportedException {
+        Books temp = makeCloneOfBooks();
         Arrays.sort(temp.array, new Comparator<Book>(){
             @Override
             public int compare(Book o1, Book o2) {
@@ -102,8 +115,7 @@ public class Books implements Cloneable {
     }
 
     public Books sortByPublisherDesc() throws CloneNotSupportedException {
-        Books temp = (Books) super.clone();
-        temp.array = this.array.clone();
+        Books temp = makeCloneOfBooks();
         Arrays.sort(temp.array, new Comparator<Book>(){
             @Override
             public int compare(Book o1, Book o2) {
@@ -114,9 +126,9 @@ public class Books implements Cloneable {
         });
         return temp;
     }
+
     public Books sortByPriceAsc() throws CloneNotSupportedException {
-        Books temp = (Books) super.clone();
-        temp.array = this.array.clone();
+        Books temp = makeCloneOfBooks();
         Arrays.sort(temp.array, new Comparator<Book>(){
             @Override
             public int compare(Book o1, Book o2) {

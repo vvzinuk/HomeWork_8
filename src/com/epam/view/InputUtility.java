@@ -12,11 +12,11 @@ public class InputUtility {
         return sc.nextInt();
     }
 
-    public static String inputStringValueWithScanner(Messenger view) {
+    public static String inputStringValueWithScanner(Messenger view){
         while( !sc.hasNextLine()) {
             view.printMessage(Messages.WRONG_INPUT_INT_DATA + Messages.INPUT_AUTHOR );
             sc.next();
         }
-        return sc.nextLine();
+        return sc.next();
     }
 }

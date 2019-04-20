@@ -2,6 +2,8 @@ package com.epam.view;
 
 public interface Messages {
     String LIBRARY_IS_EMPTY = "Library is empty.";
+    String YEAR_SEARCH_EMPTY = "We don't have any books written in this year and after\n";
+    String AUTHOR_SEARCH_EMPTY = "We don't have any books written by thi  author\n";
     String INPUT_PERCENT = "Enter the percent: ";
     String INPUT_AUTHOR = "Enter author name: ";
     String INPUT_YEAR = "Enter minimal year of book publishing: ";
